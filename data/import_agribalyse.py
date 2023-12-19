@@ -92,6 +92,62 @@ AGRIBALYSE_MIGRATIONS = [
                     ),
                     {"unit": "ha", "multiplier": 1e-4},
                 ),
+                (
+                    ("Occupation, agriculture", "m2a"),
+                    {"name": "Occupation, permanent crop"},
+                ),
+                (
+                    ("Occupation, dump site, benthos", "m2a"),
+                    {"name": "Occupation, dump site"},
+                ),
+                (
+                    ("Occupation, forest, used", "m2a"),
+                    {"name": "Occupation, forest, unspecified"},
+                ),
+                (
+                    ("Occupation, grassland/pasture/meadow", "m2a"),
+                    {"name": "Occupation, pasture, man made"},
+                ),
+                (
+                    ("Occupation, industrial area, benthos", "m2a"),
+                    {"name": "Occupation, industrial area"},
+                ),
+                (
+                    ("Occupation, industrial area, built up", "m2a"),
+                    {"name": "Occupation, industrial area"},
+                ),
+                (
+                    ("Occupation, industrial area, vegetation", "m2a"),
+                    {"name": "Occupation, industrial area"},
+                ),
+                (
+                    ("Occupation, permanent crop, fruit, intensive", "m2a"),
+                    {"name": "Occupation, permanent crop, irrigated, intensive"},
+                ),
+                (
+                    ("Occupation, sea and ocean", "m2a"),
+                    {"name": "Occupation, unspecified"},
+                ),
+                (
+                    ("Occupation, traffic area, road embankment", "m2a"),
+                    {"name": "Occupation, traffic area, rail/road embankment"},
+                ),
+                (
+                    ("Occupation, unspecified, used", "m2a"),
+                    {"name": "Occupation, unspecified"},
+                ),
+                (
+                    ("Occupation, water bodies, artificial", "m2a"),
+                    {"name": "Occupation, unspecified"},
+                ),
+                (
+                    ("Occupation, water courses, artificial", "m2a"),
+                    {"name": "Occupation, unspecified"},
+                ),
+                (
+                    ("Occupation, wetland", "m2a"),
+                    {"name": "Occupation, wetland, inland (non-use)"},
+                ),
             ],
         },
     }
