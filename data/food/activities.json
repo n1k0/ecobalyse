@@ -2143,5 +2143,31 @@
     "inedible_part": 0.1,
     "transport_cooling": "once_transformed",
     "visible": true
+  },
+  {
+    "id": "lamb-meat-without-bone",
+    "name": "Viande d'agneau (sans os)",
+    "search": "Meat without bone lamb",
+    "category": "ingredient",
+    "categories": ["animal_product"],
+    "default_origin": "EuropeAndMaghreb",
+    "raw_to_cooked_ratio": 0.792,
+    "density": 1,
+    "inedible_part": 0,
+    "transport_cooling": "always",
+    "visible": true
+  },
+  {
+    "id": "lamb-organic-meat-without-bone",
+    "name": "Viande d'agneau (sans os)",
+    "search": "Meat without bone lamb organic",
+    "category": "ingredient",
+    "categories": ["animal_product"],
+    "default_origin": "EuropeAndMaghreb",
+    "raw_to_cooked_ratio": 0.792,
+    "density": 1,
+    "inedible_part": 0,
+    "transport_cooling": "always",
+    "visible": true
   }
 ]
