@@ -29,7 +29,7 @@ type alias Db =
 buildFromJson : TextileDb.Db -> String -> String -> Result String Db
 buildFromJson { impactDefinitions, countries, transports } foodProcessesJson ingredientsJson =
     foodProcessesJson
-        |> Decode.decodeString (Process.decodeList impactDefinitions)
+        |> Decode.decodeString Process.decodeList
         |> Result.andThen
             (\processes ->
                 ingredientsJson

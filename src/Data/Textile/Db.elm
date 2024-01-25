@@ -35,7 +35,7 @@ decode =
     Decode.field "impacts" Definition.decode
         |> Decode.andThen
             (\definitions ->
-                Decode.field "processes" (TextileProcess.decodeList definitions)
+                Decode.field "processes" TextileProcess.decodeList
                     |> Decode.andThen
                         (\processes ->
                             Decode.map4 (Db definitions processes)
