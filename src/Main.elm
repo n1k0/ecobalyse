@@ -2,11 +2,14 @@ module Main exposing (main)
 
 import Browser exposing (Document)
 import Browser.Navigation as Nav
+import Data.Food.Process as FoodProcess
 import Data.Food.Query as FoodQuery
 import Data.Impact as Impact
 import Data.Session as Session exposing (Session)
 import Data.Textile.Inputs as TextileInputs
+import Data.Textile.Process as TextileProcess
 import Html
+import Http
 import Page.Api as Api
 import Page.Changelog as Changelog
 import Page.Editorial as Editorial
@@ -68,6 +71,7 @@ type Msg
     | FoodBuilderMsg FoodBuilder.Msg
     | HomeMsg Home.Msg
     | LoadUrl String
+    | LoggedIn (Result String { textileProcesses : List TextileProcess.Process, foodProcesses : List FoodProcess.Process })
     | Login
     | Logout
     | OpenMobileNavigation
@@ -298,16 +302,31 @@ update rawMsg ({ state } as model) =
                 ( VersionPoll, _ ) ->
                     ( model, Request.Version.loadVersion VersionReceived )
 
-                ( Login, currentPage ) ->
+                ( LoggedIn (Ok { textileProcesses, foodProcesses }), currentPage ) ->
                     let
                         newSession =
-                            Session.login session
+                            Session.loggedIn session textileProcesses foodProcesses
                     in
                     ( { model
                         | state =
                             currentPage |> Loaded newSession
                       }
                     , newSession.store |> Session.serializeStore |> Ports.saveStore
+                    )
+
+                ( LoggedIn (Err error), _ ) ->
+                    -- TODO: display an error message
+                    let
+                        _ =
+                            Debug.log "Error" error
+                    in
+                    ( model
+                    , Cmd.none
+                    )
+
+                ( Login, _ ) ->
+                    ( model
+                    , Session.login LoggedIn
                     )
 
                 ( Logout, currentPage ) ->
