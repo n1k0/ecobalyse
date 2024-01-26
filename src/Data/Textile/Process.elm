@@ -4,6 +4,7 @@ module Data.Textile.Process exposing
     , WellKnown
     , decodeFromUuid
     , decodeList
+    , encode
     , encodeUuid
     , findByUuid
     , getDyeingProcess
@@ -26,6 +27,7 @@ import Json.Decode as Decode exposing (Decoder)
 import Json.Decode.Extra as DecodeExtra
 import Json.Decode.Pipeline as Pipe
 import Json.Encode as Encode
+import Json.Encode.Extra as EncodeExtra
 import Result.Extra as RE
 
 
@@ -295,6 +297,30 @@ decodeAlias =
     Decode.map Alias Decode.string
 
 
+encodeAlias : Alias -> Encode.Value
+encodeAlias =
+    aliasToString >> Encode.string
+
+
 encodeUuid : Uuid -> Encode.Value
 encodeUuid =
     uuidToString >> Encode.string
+
+
+encode : Process -> Encode.Value
+encode process =
+    Encode.object
+        [ ( "name", Encode.string process.name )
+        , ( "info", Encode.string process.info )
+        , ( "unit", Encode.string process.unit )
+        , ( "source", Encode.string process.source )
+        , ( "correctif", Encode.string process.correctif )
+        , ( "step_usage", Encode.string process.stepUsage )
+        , ( "uuid", encodeUuid process.uuid )
+        , ( "impacts", Impact.encode process.impacts )
+        , ( "heat_MJ", Encode.float (Energy.inMegajoules process.heat) )
+        , ( "elec_pppm", Encode.float process.elec_pppm )
+        , ( "elec_MJ", Encode.float (Energy.inMegajoules process.elec) )
+        , ( "waste", Unit.encodeRatio process.waste )
+        , ( "alias", EncodeExtra.maybe encodeAlias process.alias )
+        ]
