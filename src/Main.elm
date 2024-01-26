@@ -68,6 +68,8 @@ type Msg
     | FoodBuilderMsg FoodBuilder.Msg
     | HomeMsg Home.Msg
     | LoadUrl String
+    | Login
+    | Logout
     | OpenMobileNavigation
     | ReloadPage
     | StatsMsg Stats.Msg
@@ -296,6 +298,30 @@ update rawMsg ({ state } as model) =
                 ( VersionPoll, _ ) ->
                     ( model, Request.Version.loadVersion VersionReceived )
 
+                ( Login, currentPage ) ->
+                    let
+                        newSession =
+                            Session.login session
+                    in
+                    ( { model
+                        | state =
+                            currentPage |> Loaded newSession
+                      }
+                    , newSession.store |> Session.serializeStore |> Ports.saveStore
+                    )
+
+                ( Logout, currentPage ) ->
+                    let
+                        newSession =
+                            Session.logout session
+                    in
+                    ( { model
+                        | state =
+                            currentPage |> Loaded newSession
+                      }
+                    , newSession.store |> Session.serializeStore |> Ports.saveStore
+                    )
+
                 -- Catch-all
                 ( _, NotFoundPage ) ->
                     ( { model | state = Loaded session NotFoundPage }, Cmd.none )
@@ -353,6 +379,8 @@ view { state, mobileNavigationOpened } =
                         CloseMobileNavigation
                         OpenMobileNavigation
                         LoadUrl
+                        Login
+                        Logout
                         ReloadPage
                         CloseNotification
 
