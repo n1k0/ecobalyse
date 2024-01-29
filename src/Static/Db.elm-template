@@ -1,4 +1,4 @@
-module Static.Db exposing (Db, db)
+module Static.Db exposing (Db, db, processes)
 
 
 import Data.Food.Db as FoodDb
@@ -9,9 +9,17 @@ type alias Db =
     { foodDb : FoodDb.Db,  textileDb : TextileDb.Db }
 
 
-textileDb : Result String TextileDb.Db
-textileDb =
-    """%textileJson%""" |> TextileDb.buildFromJson
+textileProcessesJson : String
+textileProcessesJson =
+    """%textileProcessesJson%"""
+
+
+textileDb : String -> Result String TextileDb.Db
+textileDb textileProcesses =
+    """%textileJson%""" |> TextileDb.buildFromJson textileProcesses
+
+
+type alias Processes = { foodProcesses : String, textileProcesses: String }
 
 
 foodProcessesJson : String
@@ -24,15 +32,22 @@ foodIngredientsJson =
     """%foodIngredientsJson%"""
 
 
-foodDb : Result String FoodDb.Db
-foodDb =
-    textileDb
+foodDb : String -> String -> Result String FoodDb.Db
+foodDb textileProcesses foodProcesses =
+    textileDb textileProcesses
         |> Result.andThen
             (\textileDbParsed ->
-                FoodDb.buildFromJson textileDbParsed foodProcessesJson foodIngredientsJson
+                FoodDb.buildFromJson textileDbParsed foodProcesses foodIngredientsJson
             )
 
 
-db : Result String Db
-db =
-    Result.map2 Db foodDb textileDb
+processes : Processes
+processes = 
+    { foodProcesses = foodProcessesJson
+    , textileProcesses = textileProcessesJson
+    }
+
+
+db : Processes -> Result String Db
+db { foodProcesses, textileProcesses } =
+    Result.map2 Db (foodDb textileProcesses foodProcesses) (textileDb textileProcesses)

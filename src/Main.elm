@@ -2,14 +2,11 @@ module Main exposing (main)
 
 import Browser exposing (Document)
 import Browser.Navigation as Nav
-import Data.Food.Process as FoodProcess
 import Data.Food.Query as FoodQuery
 import Data.Impact as Impact
 import Data.Session as Session exposing (Session)
 import Data.Textile.Inputs as TextileInputs
-import Data.Textile.Process as TextileProcess
 import Html
-import Http
 import Page.Api as Api
 import Page.Changelog as Changelog
 import Page.Editorial as Editorial
@@ -71,7 +68,7 @@ type Msg
     | FoodBuilderMsg FoodBuilder.Msg
     | HomeMsg Home.Msg
     | LoadUrl String
-    | LoggedIn (Result String { textileProcesses : List TextileProcess.Process, foodProcesses : List FoodProcess.Process })
+    | LoggedIn (Result String Session.FullImpacts)
     | Login
     | Logout
     | OpenMobileNavigation
@@ -89,7 +86,7 @@ init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
     setRoute url
         ( { state =
-                case StaticDb.db of
+                case StaticDb.db StaticDb.processes of
                     Ok db ->
                         Loaded
                             { clientUrl = flags.clientUrl
@@ -303,10 +300,10 @@ update rawMsg ({ state } as model) =
                     ( model, Request.Version.loadVersion VersionReceived )
 
                 -- Login
-                ( LoggedIn (Ok { textileProcesses, foodProcesses }), currentPage ) ->
+                ( LoggedIn (Ok newProcessesJson), currentPage ) ->
                     let
                         newSession =
-                            Session.loggedIn session textileProcesses foodProcesses
+                            Session.loggedIn session newProcessesJson
                     in
                     ( { model
                         | state =
@@ -319,7 +316,7 @@ update rawMsg ({ state } as model) =
                     let
                         newSession =
                             session
-                                |> Session.notifyError "Impossible de charger les impacts lors du login : " error
+                                |> Session.notifyError "Impossible de charger les impacts lors du login" error
                     in
                     ( { model
                         | state =

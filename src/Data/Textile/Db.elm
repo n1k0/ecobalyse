@@ -24,30 +24,32 @@ type alias Db =
     }
 
 
-buildFromJson : String -> Result String Db
-buildFromJson json =
-    Decode.decodeString decode json
+buildFromJson : String -> String -> Result String Db
+buildFromJson processesJson json =
+    processesJson
+        |> Decode.decodeString TextileProcess.decodeList
+        |> Result.andThen
+            (\processes ->
+                json
+                    |> Decode.decodeString (decode processes)
+            )
         |> Result.mapError Decode.errorToString
 
 
-decode : Decoder Db
-decode =
+decode : List TextileProcess.Process -> Decoder Db
+decode processes =
     Decode.field "impacts" Definition.decode
         |> Decode.andThen
             (\definitions ->
-                Decode.field "processes" TextileProcess.decodeList
+                Decode.map4 (Db definitions processes)
+                    (Decode.field "countries" (Country.decodeList processes))
+                    (Decode.field "materials" (Material.decodeList processes))
+                    (Decode.field "products" (Product.decodeList processes))
+                    (Decode.field "transports" Transport.decodeDistances)
                     |> Decode.andThen
-                        (\processes ->
-                            Decode.map4 (Db definitions processes)
-                                (Decode.field "countries" (Country.decodeList processes))
-                                (Decode.field "materials" (Material.decodeList processes))
-                                (Decode.field "products" (Product.decodeList processes))
-                                (Decode.field "transports" Transport.decodeDistances)
-                                |> Decode.andThen
-                                    (\partiallyLoaded ->
-                                        TextileProcess.loadWellKnown processes
-                                            |> Result.map partiallyLoaded
-                                            |> DE.fromResult
-                                    )
+                        (\partiallyLoaded ->
+                            TextileProcess.loadWellKnown processes
+                                |> Result.map partiallyLoaded
+                                |> DE.fromResult
                         )
             )

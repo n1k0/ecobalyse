@@ -1,5 +1,6 @@
 module Data.Session exposing
-    ( Notification(..)
+    ( FullImpacts
+    , Notification(..)
     , Session
     , Store
     , checkComparedSimulations
@@ -33,6 +34,7 @@ import Json.Decode.Pipeline as JDP
 import Json.Encode as Encode
 import Request.Version exposing (Version)
 import Set exposing (Set)
+import Static.Db as StaticDb
 import Task
 
 
@@ -257,23 +259,46 @@ updateStore update session =
     { session | store = update session.store }
 
 
-loggedIn : Session -> List TextileProcess.Process -> List FoodProcess.Process -> Session
-loggedIn ({ store } as session) textileProcesses foodProcesses =
-    { session | store = { store | auth = LoggedIn textileProcesses foodProcesses } }
+loggedIn : Session -> FullImpacts -> Session
+loggedIn ({ store } as session) { textileProcessesJson, foodProcessesJson } =
+    let
+        originalProcesses =
+            StaticDb.processes
+
+        newProcesses =
+            { originalProcesses
+                | foodProcesses = foodProcessesJson
+                , textileProcesses = textileProcessesJson
+            }
+    in
+    case StaticDb.db newProcesses of
+        Ok db ->
+            { session
+                | store = { store | auth = LoggedIn db.textileDb.processes db.foodDb.processes }
+                , textileDb = db.textileDb
+                , foodDb = db.foodDb
+            }
+
+        Err err ->
+            session
+                |> notifyError "Impossible de recharger la db avec les nouveaux procédés" err
 
 
-login : (Result String { textileProcesses : List TextileProcess.Process, foodProcesses : List FoodProcess.Process } -> msg) -> Cmd msg
+type alias FullImpacts =
+    { textileProcessesJson : String, foodProcessesJson : String }
+
+
+login : (Result String FullImpacts -> msg) -> Cmd msg
 login event =
     Task.attempt event
-        (Task.map2
-            (\textileProcesses foodProcesses -> { textileProcesses = textileProcesses, foodProcesses = foodProcesses })
-            (getProcesses "data/textile/processes_impacts.json" TextileProcess.decodeList)
-            (getProcesses "data/food/processes_impacts.json" FoodProcess.decodeList)
+        (Task.map2 FullImpacts
+            (getProcesses "data/textile/processes_impacts.json")
+            (getProcesses "data/food/processes_impacts.json")
         )
 
 
-getProcesses : String -> Decoder a -> Task.Task String a
-getProcesses url decoder =
+getProcesses : String -> Task.Task String String
+getProcesses url =
     Http.task
         { method = "GET"
         , headers = []
@@ -284,8 +309,7 @@ getProcesses url decoder =
                 (\response ->
                     case response of
                         Http.GoodStatus_ _ stringBody ->
-                            Decode.decodeString decoder stringBody
-                                |> Result.mapError Decode.errorToString
+                            Ok stringBody
 
                         _ ->
                             Err "Couldn't get the processes"

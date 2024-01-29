@@ -320,7 +320,7 @@ update : Msg -> Cmd Msg
 update msg =
     case msg of
         Received request ->
-            case StaticDb.db of
+            case StaticDb.db StaticDb.processes of
                 Err dbError ->
                     encodeStringError dbError |> sendResponse 503 request
 
