@@ -6,6 +6,10 @@
  * is impossible in an Elm test environment.
  */
 const fs = require("fs");
+const textileProcesses = process.env.TEXTILE_PROCESSES || "public/data/textile/processes.json";
+const foodProcesses = process.env.FOOD_PROCESSES || "public/data/food/processes.json";
+console.log("textileProcesses", textileProcesses);
+const targetDbFile = process.env.STATIC_DB || "src/Static/Db.elm"
 
 function getJson(path) {
   return JSON.parse(fs.readFileSync(path).toString());
@@ -19,8 +23,8 @@ function serializeForElmTemplateString(toStringify) {
   return JSON.stringify(toStringify).replaceAll("\\", "\\\\");
 }
 
-function buildTextileProcessesJsonDb(basePath = "public/data/textile") {
-  return serializeForElmTemplateString(getJson(`${basePath}/processes_impacts.json`));
+function buildTextileProcessesJsonDb() {
+  return serializeForElmTemplateString(getJson(textileProcesses));
 }
 
 function buildTextileJsonDb(basePath = "public/data") {
@@ -35,15 +39,14 @@ function buildTextileJsonDb(basePath = "public/data") {
   });
 }
 
-function buildFoodProcessesJsonDb(basePath = "public/data/food") {
-  return serializeForElmTemplateString(getJson(`${basePath}/processes_impacts.json`));
+function buildFoodProcessesJsonDb() {
+  return serializeForElmTemplateString(getJson(foodProcesses));
 }
 
 function buildFoodIngredientsJsonDb(basePath = "public/data/food") {
   return serializeForElmTemplateString(getJson(`${basePath}/ingredients.json`));
 }
 
-const targetDbFile = "src/Static/Db.elm";
 const elmTemplate = fs.readFileSync(`${targetDbFile}-template`).toString();
 const elmWithFixtures = elmTemplate
   .replace("%textileProcessesJson%", buildTextileProcessesJsonDb())
