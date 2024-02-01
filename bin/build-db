@@ -20,7 +20,7 @@ function serializeForElmTemplateString(toStringify) {
 }
 
 function buildTextileProcessesJsonDb(basePath = "public/data/textile") {
-  return serializeForElmTemplateString(getJson(`${basePath}/processes.json`));
+  return serializeForElmTemplateString(getJson(`${basePath}/processes_impacts.json`));
 }
 
 function buildTextileJsonDb(basePath = "public/data") {
@@ -36,7 +36,7 @@ function buildTextileJsonDb(basePath = "public/data") {
 }
 
 function buildFoodProcessesJsonDb(basePath = "public/data/food") {
-  return serializeForElmTemplateString(getJson(`${basePath}/processes.json`));
+  return serializeForElmTemplateString(getJson(`${basePath}/processes_impacts.json`));
 }
 
 function buildFoodIngredientsJsonDb(basePath = "public/data/food") {

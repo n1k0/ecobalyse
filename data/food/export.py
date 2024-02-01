@@ -24,7 +24,7 @@ ACTIVITIES = "activities.json"
 IMPACTS = "../../public/data/impacts.json"  # TODO move the impact definition somewhere else and remove base impact
 # Output
 INGREDIENTS = "../../public/data/food/ingredients.json"
-PROCESSES = "../../public/data/food/processes.json"
+PROCESSES = "../../public/data/food/processes_impacts.json"
 
 projects.set_current(PROJECT)
 # projects.activate_project(PROJECT)
