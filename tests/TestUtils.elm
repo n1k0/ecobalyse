@@ -19,7 +19,7 @@ asTest label =
 
 suiteWithDb : String -> (StaticDb.Db -> List Test) -> Test
 suiteWithDb name suite =
-    case StaticDb.db of
+    case StaticDb.db StaticDb.processes of
         Ok db ->
             describe name (suite db)
 

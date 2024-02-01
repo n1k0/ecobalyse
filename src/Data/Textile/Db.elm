@@ -4,6 +4,7 @@ module Data.Textile.Db exposing
     )
 
 import Data.Country as Country exposing (Country)
+import Data.Impact as Impact
 import Data.Impact.Definition as Definition exposing (Definitions)
 import Data.Textile.Material as Material exposing (Material)
 import Data.Textile.Process as TextileProcess
@@ -27,7 +28,7 @@ type alias Db =
 buildFromJson : String -> String -> Result String Db
 buildFromJson processesJson json =
     processesJson
-        |> Decode.decodeString TextileProcess.decodeList
+        |> Decode.decodeString (TextileProcess.decodeList Impact.decodeImpacts)
         |> Result.andThen
             (\processes ->
                 json

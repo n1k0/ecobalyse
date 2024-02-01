@@ -6,6 +6,7 @@ module Data.Food.Db exposing
 import Data.Country exposing (Country)
 import Data.Food.Ingredient as Ingredient exposing (Ingredient)
 import Data.Food.Process as Process exposing (Process)
+import Data.Impact as Impact
 import Data.Impact.Definition exposing (Definitions)
 import Data.Textile.Db as TextileDb
 import Data.Transport as Transport
@@ -29,7 +30,7 @@ type alias Db =
 buildFromJson : TextileDb.Db -> String -> String -> Result String Db
 buildFromJson { impactDefinitions, countries, transports } foodProcessesJson ingredientsJson =
     foodProcessesJson
-        |> Decode.decodeString Process.decodeList
+        |> Decode.decodeString (Process.decodeList Impact.decodeImpacts)
         |> Result.andThen
             (\processes ->
                 ingredientsJson
