@@ -1,0 +1,32 @@
+id,ignore,wheat-ru,wheat-us,sugar-br,sugar-au,sugar-in,sugar-th,lentil-ca,tomato-es,cherry-tr
+Damage category,Unit,"Wheat grain, irrigated, at farm (WFLDB)/RU U","Wheat grain {US}| wheat production | Cut-off, U - Adapted from Ecoinvent U","Sugar, from sugarcane {BR}| sugarcane processing, modern annexed plant | Cut-off, U","Sugar, from sugarcane, at sugar refinery {AU} - Adapted from WFLDB U","Sugar, from sugarcane, at sugar refinery {IN} - Adapted from WFLDB U","Sugar, from sugarcane, at sugar refinery {TH} - Adapted from WFLDB U","Lentil {RoW}| lentil production | Cut-off, U","Tomato, fresh grade {ES}| tomato production, fresh grade, in unheated greenhouse | Cut-off, U - Copied from Ecoinvent U","Cherry, at farm (WFLDB)/TR U"
+Acidification,mol H+ eq,0.0034451914,0.0098118196,0.010764315,0.023171745,0.013644108,0.0073065226,0.0015741232,0.0039980407,0.030107258
+Climate change,kg CO2 eq,0.38661557,0.70498031,0.078456849,0.70183294,0.48227983,0.65301743,0.71969776,0.37149388,1.1755923
+"Ecotoxicity, freshwater",CTUe,1.3629596,19.228796,49.869649,19.238919,169.58053,43.746352,309.51212,24.786823,367.27527
+Particulate matter,disease inc.,1.9688053E-8,6.7631502E-8,7.3298054E-8,2.6644058E-7,2.0406739E-7,1.5795069E-7,1.3730545E-8,8.2952738E-8,2.0162316E-7
+"Eutrophication, marine",kg N eq,0.01241213,0.013979163,0.0071128754,0.0062476494,0.0049534184,0.004597195,0.0002551769,0.00099280019,0.010039146
+"Eutrophication, freshwater",kg P eq,0.00020192845,0.001064061,6.3684039E-5,0.00014155102,0.00022455642,0.00026843698,0.00038559577,0.00010122528,0.00058404548
+"Eutrophication, terrestrial",mol N eq,0.014065042,0.040644567,0.047721611,0.1008719,0.056330704,0.030853582,0.0049459352,0.013731529,0.12526831
+"Human toxicity, cancer",CTUh,2.3492963E-10,3.5351244E-10,3.5814214E-10,4.60363E-10,6.2690243E-10,7.1481502E-10,3.3748271E-10,2.3621692E-9,6.7943252E-9
+"Human toxicity, non-cancer",CTUh,2.8468769E-10,1.4323997E-9,2.8649773E-9,1.3323995E-9,1.4810425E-8,3.6408862E-9,1.0146992E-9,2.5656184E-9,2.2209788E-8
+Ionising radiation,kBq U-235 eq,0.019629772,0.037612127,0.004554041,0.026554468,0.018214244,0.023730541,0.0068781318,0.018665914,0.03644266
+Land use,Pt,140.23938,231.41524,67.538595,45.150358,63.04125,66.653665,-14090.37,5.0560978,89.629286
+Ozone depletion,kg CFC11 eq,3.2975198E-8,5.9353794E-8,5.7533595E-9,5.1313597E-8,3.0539894E-8,4.9519294E-8,8.0397617E-9,2.5903201E-8,8.0515887E-8
+Photochemical ozone formation,kg NMVOC eq,0.0018075183,0.00284131,0.0038363137,0.0048841159,0.0033232574,0.0049270777,0.00098859344,0.00140733,0.0054738319
+"Resource use, fossils",MJ,3.3548877,6.2329492,2.5096181,6.1759262,4.8767776,5.5956615,1.8065202,4.8788867,11.321766
+"Resource use, minerals and metals",kg Sb eq,1.317678E-6,8.7530576E-6,2.0158544E-6,7.5045712E-6,5.4790882E-6,5.4063937E-6,2.3878417E-6,6.4110243E-6,3.6622057E-6
+Water use,m3 depriv.,1.961008,13.365019,0.12587607,9.3140844,7.5798272,2.8116984,0.033513492,2.1826013,19.603945
+name,,Blé tendre (RU),Blé tendre (US),Sucre de canne (BR),Sucre de canne (AU),Sucre de canne (IN),Sucre de canne (TH),Lentilles (CA),Tomate sous serre non chauffée (ES),Cerise (TR)
+search,,"Wheat grain, irrigated, at farm (WFLDB)/RU U","Wheat grain {US}| wheat production | Cut-off, U - Adapted from Ecoinvent U","Sugar, from sugarcane {BR}| sugarcane processing, modern annexed plant | Cut-off, U","Sugar, from sugarcane, at sugar refinery {AU} - Adapted from WFLDB U","Sugar, from sugarcane, at sugar refinery {IN} - Adapted from WFLDB U","Sugar, from sugarcane, at sugar refinery {TH} - Adapted from WFLDB U","Lentil {RoW}| lentil production | Cut-off, U","Tomato, fresh grade {ES}| tomato production, fresh grade, in unheated greenhouse | Cut-off, U - Copied from Ecoinvent U","Cherry, at farm (WFLDB)/TR U"
+category,,ingredient,ingredient,ingredient,ingredient,ingredient,ingredient,ingredient,ingredient,ingredient
+categories,,grain_raw,grain_raw,vegetable_processed,vegetable_processed,vegetable_processed,vegetable_processed,nut_oilseed_raw,vegetable_fresh,vegetable_fresh
+default_origin,,EuropeAndMaghreb,OutOfEuropeAndMaghreb,OutOfEuropeAndMaghreb,OutOfEuropeAndMaghreb,OutOfEuropeAndMaghreb,OutOfEuropeAndMaghreb,OutOfEuropeAndMaghreb,EuropeAndMaghreb,EuropeAndMaghreb
+raw_to_cooked_ratio,,2.259,2.259,1,1,1,1,2.33,0.856,0.856
+density,,1,1,1,1,1,1,0.24,0.447,0.447
+inedible_part,,0,0,0,0,0,0,0,0.03,0.2
+transport_cooling,,none,none,none,none,none,none,none,once_transformed,none
+visible,,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+land_footprint,,2.77,4.59,1.32,0.86,1.21,1.21,5.92,0.09,1.79
+crop_group,,BLE TENDRE,BLE TENDRE,DIVERS,DIVERS,DIVERS,DIVERS,LEGUMINEUSES A GRAIN,LEGUMES-FLEURS,VERGERS
+scenario,,import,import,import,import,import,import,import,import,import
+impact_computed_from,,simapro,simapro,simapro,simapro,simapro,simapro,simapro,simapro,simapro
