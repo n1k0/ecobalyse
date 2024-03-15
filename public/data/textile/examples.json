@@ -1,5 +1,34 @@
 [
   {
+    "id": "e964b0d8-7086-4151-8ca7-a3434e412910",
+    "name": "Un nouveau produit",
+    "category": "Tshirt / Polo",
+    "query": {
+      "mass": 0.15,
+      "materials": [
+        {
+          "id": "ei-coton",
+          "share": 0.75
+        },
+        {
+          "id": "coton-rdp",
+          "share": 0.25
+        }
+      ],
+      "product": "tshirt",
+      "countrySpinning": "IN",
+      "countryFabric": "IN",
+      "countryDyeing": "IN",
+      "countryMaking": "IN",
+      "fabricProcess": "knitting-mix",
+      "business": "large-business-without-services",
+      "marketingDuration": 115,
+      "numberOfReferences": 12000,
+      "price": 10,
+      "traceability": false
+    }
+  },
+  {
     "id": "c4143a5b-8b18-40d7-95cb-8419b1ccbcab",
     "name": "Jupe 100% coton Asie (300g)",
     "category": "Jupe / Robe",
@@ -378,7 +407,7 @@
   },
   {
     "id": "fb6bd648-4f81-4b14-987a-62c75691955c",
-    "name": "Tshirt lin France (100%) marque éthique (150g)",
+    "name": "T-shirt renommé et modifié",
     "category": "Tshirt / Polo",
     "query": {
       "mass": 0.15,
