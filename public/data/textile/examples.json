@@ -1,5 +1,30 @@
 [
   {
+    "id": "5d2d6df0-4e56-4d8b-afea-a6f8a5cb2486",
+    "name": "Un nouveau truc",
+    "category": "Tshirt / Polo",
+    "query": {
+      "mass": 0.15,
+      "materials": [
+        {
+          "id": "ei-coton",
+          "share": 1
+        }
+      ],
+      "product": "tshirt",
+      "countrySpinning": "PK",
+      "countryFabric": "PK",
+      "countryDyeing": "PK",
+      "countryMaking": "PK",
+      "fabricProcess": "knitting-mix",
+      "business": "large-business-with-services",
+      "marketingDuration": 115,
+      "numberOfReferences": 2500,
+      "price": 40,
+      "traceability": false
+    }
+  },
+  {
     "id": "c4143a5b-8b18-40d7-95cb-8419b1ccbcab",
     "name": "Jupe 100% coton Asie (300g)",
     "category": "Jupe / Robe",
@@ -181,7 +206,7 @@
   },
   {
     "id": "9e78434a-5593-4034-a2b9-4f40a4c5cbc4",
-    "name": "Pantalon 100% coton France (450g)",
+    "name": "Un autre produit modifié",
     "category": "Pantalon / Short",
     "query": {
       "mass": 0.45,
