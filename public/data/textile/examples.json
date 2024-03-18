@@ -1,5 +1,55 @@
 [
   {
+    "id": "36d74220-d149-45c4-b288-3f5d6e211d50",
+    "name": "un tout nouveau produit qui n'existait pas avant",
+    "category": "Tshirt / Polo",
+    "query": {
+      "mass": 0.45,
+      "materials": [
+        {
+          "id": "coton",
+          "share": 1
+        }
+      ],
+      "product": "jean",
+      "countrySpinning": "CN",
+      "countryFabric": "CN",
+      "countryDyeing": "CN",
+      "countryMaking": "CN",
+      "fabricProcess": "weaving",
+      "numberOfReferences": 8601
+    }
+  },
+  {
+    "id": "0969f3f0-4305-4871-a1a8-491c1efda897",
+    "name": "un tshjirt copié ici",
+    "category": "Tshirt / Polo",
+    "query": {
+      "mass": 0.15,
+      "materials": [
+        {
+          "id": "ei-coton",
+          "share": 0.75
+        },
+        {
+          "id": "coton-rdp",
+          "share": 0.25
+        }
+      ],
+      "product": "tshirt",
+      "countrySpinning": "IN",
+      "countryFabric": "IN",
+      "countryDyeing": "IN",
+      "countryMaking": "IN",
+      "fabricProcess": "knitting-mix",
+      "business": "large-business-without-services",
+      "marketingDuration": 115,
+      "numberOfReferences": 12000,
+      "price": 10,
+      "traceability": false
+    }
+  },
+  {
     "id": "c4143a5b-8b18-40d7-95cb-8419b1ccbcab",
     "name": "Jupe 100% coton Asie (300g)",
     "category": "Jupe / Robe",
@@ -141,7 +191,7 @@
   },
   {
     "id": "2a584143-a76d-4dfe-a156-b49323822f06",
-    "name": "Jean 100% coton France (450g)",
+    "name": "une autre produit modifié",
     "category": "Jean",
     "query": {
       "mass": 0.45,
@@ -378,7 +428,7 @@
   },
   {
     "id": "fb6bd648-4f81-4b14-987a-62c75691955c",
-    "name": "Tshirt lin France (100%) marque éthique (150g)",
+    "name": "changer le nom ici",
     "category": "Tshirt / Polo",
     "query": {
       "mass": 0.15,
