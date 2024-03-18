@@ -1,5 +1,29 @@
 [
   {
+    "id": "2fb127cd-43c3-48e4-897c-8843f0516207",
+    "name": "test textile",
+    "category": "Tshirt / Polo",
+    "query": {
+      "mass": 0.75,
+      "materials": [
+        {
+          "id": "coton",
+          "share": 1,
+          "country": "CN"
+        }
+      ],
+      "product": "manteau",
+      "countrySpinning": "FR",
+      "countryFabric": "FR",
+      "countryDyeing": "FR",
+      "countryMaking": "FR",
+      "fabricProcess": "weaving",
+      "marketingDuration": 54,
+      "numberOfReferences": 8401,
+      "traceability": true
+    }
+  },
+  {
     "id": "c4143a5b-8b18-40d7-95cb-8419b1ccbcab",
     "name": "Jupe 100% coton Asie (300g)",
     "category": "Jupe / Robe",
