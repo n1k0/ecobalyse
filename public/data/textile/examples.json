@@ -1,5 +1,25 @@
 [
   {
+    "id": "f9d612b5-0693-4e41-ae63-5175ea07e05a",
+    "name": "mon autre super manteau",
+    "category": "Manteau / Veste",
+    "query": {
+      "mass": 0.95,
+      "materials": [
+        {
+          "id": "coton",
+          "share": 1
+        }
+      ],
+      "product": "manteau",
+      "countrySpinning": "FR",
+      "countryFabric": "FR",
+      "countryDyeing": "FR",
+      "countryMaking": "FR",
+      "fabricProcess": "weaving"
+    }
+  },
+  {
     "id": "c4143a5b-8b18-40d7-95cb-8419b1ccbcab",
     "name": "Jupe 100% coton Asie (300g)",
     "category": "Jupe / Robe",
@@ -161,7 +181,7 @@
   },
   {
     "id": "1f64f159-1e4f-4679-9da9-bbb9358f32e6",
-    "name": "Manteau 100% coton France (950g)",
+    "name": "mon super manteau",
     "category": "Manteau / Veste",
     "query": {
       "mass": 0.95,
