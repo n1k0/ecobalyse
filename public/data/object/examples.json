@@ -175,7 +175,9 @@
               {
                 "amount": 0.2,
                 "material": "ac028973-5dfa-47bc-868c-e49be116f53e",
-                "transforms": ["4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"]
+                "transforms": [
+                  "4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"
+                ]
               }
             ],
             "name": "Charnières en acier"
@@ -205,6 +207,42 @@
         }
       ],
       "durability": 1
+    },
+    "scope": "object"
+  },
+  {
+    "category": "",
+    "id": "e100b42c-0a45-4bab-bf33-78005db8d30d",
+    "name": "essai de contrib2",
+    "query": {
+      "components": [
+        {
+          "id": "2fc72b7a-b840-49fa-8d25-996982160571",
+          "quantity": 1
+        },
+        {
+          "custom": {
+            "elements": [
+              {
+                "amount": 1.5,
+                "material": "f4a5d1ad-9362-4b18-9555-d5ab58f3b993",
+                "transforms": [
+                  "c295716a-fe72-44b7-b28c-efd7ad019b12"
+                ]
+              },
+              {
+                "amount": 1,
+                "material": "72e29a61-52a9-4eb5-b3fc-5fb87edea041",
+                "transforms": [
+                  "422bc131-d7fd-41e8-a8e9-6ecf4f97f36c"
+                ]
+              }
+            ],
+            "name": "Nouveau composant"
+          },
+          "quantity": 1
+        }
+      ]
     },
     "scope": "object"
   }
