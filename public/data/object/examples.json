@@ -175,7 +175,9 @@
               {
                 "amount": 0.2,
                 "material": "ac028973-5dfa-47bc-868c-e49be116f53e",
-                "transforms": ["4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"]
+                "transforms": [
+                  "4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"
+                ]
               }
             ],
             "name": "Charnières en acier"
@@ -200,6 +202,60 @@
           "quantity": 1
         },
         {
+          "id": "53dc3966-c0c5-4ce2-86da-74583fda95ae",
+          "quantity": 15
+        }
+      ],
+      "durability": 1
+    },
+    "scope": "object"
+  },
+  {
+    "category": "",
+    "id": "6b8c4ea3-e8ef-4ed7-9051-085b80187079",
+    "name": "Penderie de luxe",
+    "query": {
+      "assemblyCountry": "RNA",
+      "components": [
+        {
+          "country": "KH",
+          "custom": {
+            "elements": [
+              {
+                "amount": 0.2,
+                "material": "ac028973-5dfa-47bc-868c-e49be116f53e",
+                "transforms": [
+                  "4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"
+                ]
+              }
+            ],
+            "name": "Charnières en acier"
+          },
+          "id": "fc1c8108-4fff-4952-b842-a35125e9c5dc",
+          "quantity": 8
+        },
+        {
+          "country": "DE",
+          "id": "3aaebbee-a087-404b-bce8-3a710245b0fa",
+          "quantity": 1
+        },
+        {
+          "country": "MM",
+          "id": "01181ac8-bb9e-431d-aee4-f1ca97737d88",
+          "quantity": 1
+        },
+        {
+          "country": "IT",
+          "id": "3955d88b-4c39-4e1e-9af1-0a0908ea7d5f",
+          "quantity": 1
+        },
+        {
+          "country": "RAF",
+          "id": "a5d0097f-1121-407b-acb1-35065d4f9fda",
+          "quantity": 1
+        },
+        {
+          "country": "PT",
           "id": "53dc3966-c0c5-4ce2-86da-74583fda95ae",
           "quantity": 15
         }
