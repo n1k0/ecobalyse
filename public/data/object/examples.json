@@ -175,7 +175,9 @@
               {
                 "amount": 0.2,
                 "material": "ac028973-5dfa-47bc-868c-e49be116f53e",
-                "transforms": ["4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"]
+                "transforms": [
+                  "4c1b77b1-4e4b-4fdd-a392-eea0b8764b6b"
+                ]
               }
             ],
             "name": "Charnières en acier"
@@ -205,6 +207,35 @@
         }
       ],
       "durability": 1
+    },
+    "scope": "object"
+  },
+  {
+    "category": "",
+    "id": "58e2efb4-f4cc-4584-8af0-c93e42d699cf",
+    "name": "test contrib reviewers",
+    "query": {
+      "components": [
+        {
+          "id": "819e2167-5d04-4898-9cd5-a41a3ecfb418",
+          "quantity": 1
+        },
+        {
+          "custom": {
+            "elements": [
+              {
+                "amount": 1,
+                "material": "fba45d5f-64fc-44ae-ac75-9301c95c4657",
+                "transforms": [
+                  "5463c3b3-8a85-4b1b-9a28-132021512143"
+                ]
+              }
+            ],
+            "name": "yolo"
+          },
+          "quantity": 1
+        }
+      ]
     },
     "scope": "object"
   }
